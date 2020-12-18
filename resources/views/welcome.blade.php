@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="center jumbotron">
-        <div class="text-center">
-            <h1>Welcome to the TaskList</h1>
-            {{-- ユーザ登録ページへのリンク --}}
-            {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
+    @if (Auth::check())
+        <h2>{{ Auth::user()->name }}さんのTaskList</h2>
+    @else
+        <div class="center jumbotron">
+            <div class="text-center">
+                <h1>Welcome to the Microposts</h1>
+                {{-- ユーザ登録ページへのリンク --}}
+                {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
+            </div>
         </div>
-    </div>
+    @endif
 @endsection
