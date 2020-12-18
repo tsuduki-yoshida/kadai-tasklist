@@ -2,7 +2,8 @@
 
 @section('content')
     @if (Auth::check())
-        <h2>{{ Auth::user()->name }}さんのTaskList</h2>
+        <h2>{{ Auth::user()->name }}さんのタスクリスト一覧</h2>
+        @include("tasks.index")
     @else
         <div class="center jumbotron">
             <div class="text-center">
